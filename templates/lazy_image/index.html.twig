@@ -24,5 +24,14 @@
         {# Optionnel mais recommandé pour éviter les sauts de page lors de chargement #}
         width="200" height="150" 
     >
+    <img
+        src="{{ data_uri_thumbnail('assets/images/large.jpg', 100, 75) }}"
+        {{ stimulus_controller('symfony/ux-lazy-image/lazy-image', {
+            src: asset('assets/images/large.jpg')
+        }) }}
+        {# Using BlurHash, the size is required #}
+        width="200"
+        height="150"
+    />
 </div>
 {% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LazyImageController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'D:/Projects/ux-initiative/src/Controller/LazyImageController.php'|file_link(0) }}">src/Controller/LazyImageController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'D:/Projects/ux-initiative/templates/lazy_image/index.html.twig'|file_link(0) }}">templates/lazy_image/index.html.twig</a></code></li>
+    </ul>
+    <img
+        src="{{ asset('assets/images/small.jpg') }}"
+        {{ stimulus_controller('symfony/ux-lazy-image/lazy-image', {
+            src: asset('assets/images/large.jpg')
+        }) }}
+        {# Optionnel mais recommandé pour éviter les sauts de page lors de chargement #}
+        width="200" height="150" 
+    >
+</div>
+{% endblock %}
